@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const appRoot = path.resolve(__dirname, '../');
+const appRoot = path.resolve(__dirname, '../../');
 
 module.exports = {
   devtool: 'eval',
@@ -8,7 +8,7 @@ module.exports = {
     app: path.resolve(appRoot, './index.web.js')
   },
   output: {
-    path: path.resolve(appRoot, './web/dist'),
+    path: path.resolve(appRoot, './platforms/web/dist'),
     filename: '[name].js'
   },
   module: {
@@ -33,7 +33,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(appRoot, './web/public/index.html'),
+      template: path.resolve(appRoot, './platforms/web/public/index.html'),
     }),
   ],
 }

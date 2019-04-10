@@ -9,8 +9,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "build:web": "webpack --config ./web/webpack.config.js",
-    "serve:web": "webpack-dev-server --config ./web/webpack.config.js --hot --inline",
+    "build:web": "webpack --config ./platforms/web/webpack.config.js",
+    "serve:web": "webpack-dev-server --config ./platforms/web/webpack.config.js --hot --inline",
     "web": "npm run build:web && npm run serve:web"
   },
   "dependencies": {
