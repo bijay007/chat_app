@@ -1,5 +1,5 @@
 {
-  "name": "graphql-react-client",
+  "name": "chat_app",
   "version": "1.0.0",
   "description": "Simple react app wrapped in apollo client for graphql layer based communication",
   "main": "index.js",
@@ -7,33 +7,40 @@
   "author": "Bijay Timilsina <bjtimi.007@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build:dev": "webpack --mode development",
-    "serve:dev": "webpack-dev-server --hot --inline",
-    "start": "npm run build:dev && npm run serve:dev"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
   },
   "dependencies": {
+    "graphql": "^14.2.1",
+    "react": "16.8.3",
+    "react-dom": "^16.8.6",
+    "react-native": "^0.59.4",
+    "react-native-cli": "^2.0.1",
+    "react-native-web": "^0.11.2",
+    "react-navigation": "^3.6.1",
+    "react-apollo": "^2.5.4",
     "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
     "apollo-link": "^1.2.11",
-    "apollo-link-http": "^1.5.14",
-    "graphql": "^14.2.1",
-    "react": "^16.8.6",
-    "react-apollo": "^2.5.4",
-    "react-dom": "^16.8.6",
-    "react-native": "^0.59.4",
-    "react-native-web": "^0.11.2",
-    "react-navigation": "^3.6.1"
+    "apollo-link-http": "^1.5.14"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-react-native-web": "^0.11.2",
-    "html-webpack-plugin": "^3.2.0",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
+    "react-test-renderer": "16.8.3",
+    "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.3.0"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }
