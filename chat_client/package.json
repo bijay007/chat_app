@@ -8,7 +8,10 @@
   "license": "MIT",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "build:web": "webpack --config ./web/webpack.config.js",
+    "serve:web": "webpack-dev-server --config ./web/webpack.config.js --hot --inline",
+    "web": "npm run build:web && npm run serve:web"
   },
   "dependencies": {
     "graphql": "^14.2.1",
@@ -27,8 +30,6 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/runtime": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-react-native-web": "^0.11.2",
     "babel-jest": "^24.7.1",
