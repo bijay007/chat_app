@@ -11,7 +11,9 @@
     "test": "jest",
     "build:web": "webpack --config ./platforms/web/webpack.config.js",
     "serve:web": "webpack-dev-server --config ./platforms/web/webpack.config.js --hot --inline",
-    "web": "npm run build:web && npm run serve:web"
+    "web": "npm run build:web && npm run serve:web",
+    "android": "cd platforms/android && ./gradlew appStart",
+    "ios": "node ./config/setupIOS.js run_ios"
   },
   "dependencies": {
     "graphql": "^14.2.1",
