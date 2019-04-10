@@ -1,7 +1,7 @@
 {
   "name": "chat_app",
   "version": "1.0.0",
-  "description": "Simple react app wrapped in apollo client for graphql layer based communication",
+  "description": "Simple React native App with Apollo-Client",
   "main": "index.js",
   "repository": "https://github.com/bijay007/chat_app.git",
   "author": "Bijay Timilsina <bjtimi.007@gmail.com>",
