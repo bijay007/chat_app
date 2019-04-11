@@ -1,4 +1,4 @@
-import * as asyncExecute from 'async-execute';
+const asyncExecute = require('async-execute');
 const checkForMac = () => {
 	return new Promise((resolve, reject) => {
 		if (/darwin/i.test(process.platform)) {
@@ -26,4 +26,4 @@ const runiOS = () => {
 	});
 };
 
-export default runiOS;
+module.exports = runiOS;

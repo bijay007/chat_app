@@ -12,7 +12,7 @@
     "build:web": "webpack --config ./platforms/web/webpack.config.js",
     "serve:web": "webpack-dev-server --config ./platforms/web/webpack.config.js --hot --inline",
     "web": "npm run build:web && npm run serve:web",
-    "android": "cd platforms/android && ./gradlew appStart",
+    "android": "cd platforms/android && ./gradlew assembleRelease",
     "ios": "node ./config/setupIOS.js run_ios"
   },
   "dependencies": {
@@ -39,6 +39,7 @@
     "metro-react-native-babel-preset": "^0.53.1",
     "react-test-renderer": "16.8.3",
     "html-webpack-plugin": "^3.2.0",
+    "async-execute": "^1.1.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.3.0"

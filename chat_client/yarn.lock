@@ -1300,6 +1300,10 @@ async-each@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.2.tgz#8b8a7ca2a658f927e9f307d6d1a42f4199f0f735"
 
+async-execute@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/async-execute/-/async-execute-1.1.0.tgz#d88ad74832d41bcaa18da60fd7c44b0659320fe5"
+
 async-limiter@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
