@@ -23,7 +23,7 @@ const headerBackgroundImg = () => {
 
 // HEADER : SETTINGS
 export const _headerSettings = navigation => {
-	return (
+ 	return (
     <Button transparent
       onPress={() => navigation.navigate("Settings")}
 			style={{ paddingRight: 20 }}
@@ -41,7 +41,7 @@ export const _headerSettings = navigation => {
 
 // HEADER : BACK
 export const _headerBack = navigation => {
-	return (
+ 	return (
 		<Button
 			style={{ height: "100%" }}
 			transparent
@@ -102,7 +102,7 @@ const MainTabBar = createMaterialTopTabNavigator({
     screen: HomeStack,
     title:'HomeTab',
     navigationOptions: () => ({
-      tabBarIcon: ({ focused }) => (
+       tabBarIcon: ({ focused }) => (
         <Icon
           name="home"
           type="FontAwesome"
@@ -115,7 +115,7 @@ const MainTabBar = createMaterialTopTabNavigator({
     screen: CalendarStack,
     title:'CalendarTab',
     navigationOptions: () => ({
-      tabBarIcon: ({ focused }) => (
+       tabBarIcon: ({ focused }) => (
         <Icon
           name="calendar"
           type="FontAwesome"
@@ -126,9 +126,10 @@ const MainTabBar = createMaterialTopTabNavigator({
   }
 })
 
-const MainNavigator = createAppContainer(
-  MainTabBar,
-  SettingsDrawer
+export const MainNavigator = createAppContainer(
+  createStackNavigator({
+    MainTabBar,
+    SettingsDrawer
+  })
 )
 
-export default MainNavigator;

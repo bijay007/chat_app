@@ -4,7 +4,12 @@ module.exports = {
   plugins: [
     ["module-resolver", {
       "root": ["./src"],
-      "extensions": [".ios.js", ".android.js", ".web.js", ".json"]
+      "extensions": [".ios.js", ".android.js", ".web.js", ".json"],
+      "alias": {
+        "@components": "./src/components/",
+        "@navigation": "./src/navigation/",
+        "@views": "./src/views/"
+      }
     }]
   ]
 };
