@@ -1,11 +1,11 @@
 .NestedList {
   display: grid;
-  border: 1px;
-  border-color: brown;
+  border: 1px solid lightgray;
 }
 .NestedList_Root {
+  display: flex;
+  justify-content: flex-start;
   height: 5vmin;
-  width: 20vmax;
-  border-bottom: 1px solid black;
-  padding: 0.25rem;
+  border-bottom: 1px solid gray;
+  padding: 0.25rem 0.5rem;
 }
