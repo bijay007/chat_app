@@ -1,8 +1,12 @@
-import React from 'react'
-const NestedItem = props => {
+import React from 'react';
+import getObjectDepth from '../../utils/getObjectDepth';
+const NestedListItems = props => {
+  let dataNestedLevels = getObjectDepth(props, 'data');
   return (
-    <div></div>
+    <div>
+      This has {dataNestedLevels} levels of nesting.
+    </div>
   )
 }
 
-export default NestedItem;
+export default NestedListItems;

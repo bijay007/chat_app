@@ -2,6 +2,9 @@
 
 let dummyData = [
   {
+    title: 'Unspecified'
+  },
+  {
     title: 'Engineering',
     data: [
       {
@@ -10,9 +13,15 @@ let dummyData = [
     ]
   },
   {
+    title: 'Arts',
     data: [
       {
-        title: 'Social Science'
+        title: 'Administration',
+        data: [
+          {
+            title: 'MBA'
+          }
+        ]
       }
     ]
   },

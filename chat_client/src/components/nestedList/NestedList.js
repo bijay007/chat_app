@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NestedListItems from './NestedListItem';
 import './NestedList.css';
 
 class NestedList extends Component {
@@ -27,6 +28,11 @@ class NestedList extends Component {
                 <div>
                   <span>{elem.title ? elem.title : `Element_${index}`}</span>
                   <span>{this.state.collapsed[index]? ' + ' : ' - '}</span>
+                  {
+                    elem.data && !this.state.collapsed[index]
+                    ? <NestedListItems data={elem.data} />
+                    : null
+                  }
                 </div>
               </button>
             )
