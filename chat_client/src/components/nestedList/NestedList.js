@@ -18,6 +18,7 @@ class NestedList extends Component {
           <NestedListItem key={index}
             data={item}
             createChildrenNodes={this.createChildrenNodes}
+            styles={this.props.styles}
           />
         )
       })
@@ -26,9 +27,9 @@ class NestedList extends Component {
   }
 
   render() {
-    const { list } = this.props;
+    const { list, styles } = this.props;
     return (
-      <div className={'NestedList'}>
+      <div style={styles.listWrapper || {}}>
         {
           this.createChildrenNodes(list)
         }

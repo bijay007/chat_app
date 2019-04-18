@@ -15,7 +15,7 @@ const App = () => {
   // Apollo provider as top level wrapper to manage local state and query manipulations
   return (
     <ApolloProvider client={apolloClient}>
-      <NestedList list={dummyData} />
+      <NestedList list={dummyData} styles={{}}/>
     </ApolloProvider>
   )
 }

@@ -14,10 +14,10 @@ export default class NestedListItem extends Component {
   clickHandler = () => this.setState({ collapsed: !this.state.collapsed })
 
   render() {
-    const { data } = this.props;
+    const { data, styles } = this.props;
     return (
       <React.Fragment>
-        <button className={'NestedListItem'} onClick={() => this.clickHandler()}>
+        <div style={styles.listItem || {}} onClick={() => this.clickHandler()}>
           <div>
             <span>{data.title ? data.title : `-`}</span>
             {
@@ -26,7 +26,7 @@ export default class NestedListItem extends Component {
               : null
             }
           </div>
-        </button>
+        </div>
         <div>
         {
           this.state.collapsed
