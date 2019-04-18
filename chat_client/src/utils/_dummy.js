@@ -13,13 +13,23 @@ let dummyData = [
     ]
   },
   {
-    title: 'Arts',
+    title: 'Social Science',
     data: [
       {
         title: 'Administration',
         data: [
           {
-            title: 'MBA'
+            title: 'MBA',
+            data: [
+              {
+                title: 'Universities',
+                data: [
+                  {
+                    title: 'EAE'
+                  }
+                ]
+              }
+            ]
           }
         ]
       }

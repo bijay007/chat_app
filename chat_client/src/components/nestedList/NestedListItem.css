@@ -1,0 +1,8 @@
+.NestedListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 5vmin;
+  border-bottom: 1px solid gray;
+  padding: 0.25rem 0.5rem;
+}
