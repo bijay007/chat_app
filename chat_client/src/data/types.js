@@ -2,11 +2,13 @@
 
 // TODO: Add Typescript to make it a type definition interface
 
-const Chat = {
-  id: 'string',
-  from: 'string',
-  createdAt: 'number',
-  content: 'string'
+const ChatQuery = {
+  Chat: {
+    id: 'string',
+    from: 'string',
+    createdAt: 'number',
+    content: 'string'
+  }
 }
 
-export default Chat;
+export default ChatQuery;

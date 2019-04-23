@@ -1,11 +1,11 @@
 const url = {
   ip: {
-    local: process.env.HOSTNAME,
+    local: '192.168.1.126',
     http: 'localhost',
     ws: 'localhost'
   },
   port: {
-    local: process.env.PORT,
+    local: '192.168.1.126',
     http: '4000',
     ws: '4000'
   }
