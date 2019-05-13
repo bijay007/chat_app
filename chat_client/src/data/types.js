@@ -5,9 +5,8 @@
 const ChatQuery = {
   Chat: {
     id: 'string',
-    from: 'string',
-    createdAt: 'number',
-    content: 'string'
+    sender: 'string',
+    message: 'string'
   }
 }
 

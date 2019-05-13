@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
     "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
     "apollo-link": "^1.2.11",
@@ -14,8 +13,8 @@
     "react": "^16.8.6",
     "react-apollo": "^2.5.5",
     "react-dom": "^16.8.6",
-    "react-icons": "^3.6.1",
     "react-scripts": "2.1.8",
+    "styled-components": "^4.2.0",
     "subscriptions-transport-ws": "^0.9.16"
   },
   "scripts": {
