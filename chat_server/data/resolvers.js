@@ -11,8 +11,8 @@ const resolvers = {
   Query: {
     getChats: () => {
       const mockChat = {
-        id: Math.round(Math.random() * 10),
-        name: 'Bijay',
+        id: 'Bijay_' + Math.round(Math.random() * 10),
+        sender: 'Bijay',
         message: 'Hope this works :D'
       }
       console.log(`${chalk.green.bold('QUERY : getChats')} : TRIGGERED`)
@@ -23,10 +23,10 @@ const resolvers = {
   Mutation: {
     sendMessage(parent, {sender, message}, { pubsub }) {
       const newChatMsg = {
-        id: chatsArr.length + 1,
+        id: sender + chatsArr.length + 1,
         sender, message
       }
-      chatsArr.push(newChat);
+      chatsArr.push(newChatMsg);
       pubsub.publish('CHAT_CHANNEL', { newMessage: newChatMsg });
       console.log(`${chalk.green.bold('MUTATION : sendMessage')} : TRIGGERED`)
       return newChatMsg;

@@ -1,11 +1,10 @@
 // Contains the schema for the Chat object as well as the 3 major graphql operations on this Chat data
 const typeDefs = `
   type Chat {
-    id: Int!
+    id: String!
     sender: String!
     message: String!
   }
-
   type Query {
     getChats: [Chat]
   }
