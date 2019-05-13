@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.form`
@@ -33,11 +33,19 @@ const GoToChat = styled.button`
   }
 `
 
-const Form = () => (
-  <Wrapper>
-    <UserData placeholder={'Enter your name to join...'}></UserData>
-    <GoToChat>Join chatroom</GoToChat>
-  </Wrapper>
-)
+const Form = () => {
+  const [inputText, handleChange] = useState(''); // This is so clean with hooks...ahhh
+  const handleSumbit = e => e.preventDefault();
+  return (
+    <Wrapper onSubmit={handleSumbit}>
+      <UserData
+        value={inputText}
+        onChange={e => handleChange(e.target.value)}
+        placeholder={'Enter your name to join...'}>
+      </UserData>
+      <GoToChat onClick={e => console.log(inputText)}>Join chatroom</GoToChat>
+    </Wrapper>
+  )
+}
 
 export default Form;
