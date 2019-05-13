@@ -10,8 +10,9 @@ const CHAT_SUBSCRIPTION_CHANNEL = 'CHAT_CHANNEL';
 const resolvers = {
   Query: {
     getChats: () => {
+      const date = new Date();
       const mockChat = {
-        id: 'Bijay_' + Math.round(Math.random() * 10),
+        id: date.toLocaleString(),
         sender: 'Bijay',
         message: 'Hope this works :D'
       }
@@ -22,8 +23,9 @@ const resolvers = {
 
   Mutation: {
     sendMessage(parent, {sender, message}, { pubsub }) {
+      const date = new Date();
       const newChatMsg = {
-        id: sender + chatsArr.length + 1,
+        id: date.toLocaleString(),
         sender, message
       }
       chatsArr.push(newChatMsg);
