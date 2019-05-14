@@ -8,7 +8,7 @@ const Wrapper = styled.form`
   align-items: center;
   padding: 1rem;
 `
-const UserData = styled.input`
+const UserName = styled.input`
   padding: 0.5rem;
   width: 40%;
   margin: 1rem auto;
@@ -17,16 +17,19 @@ const UserData = styled.input`
   border: 1.5px solid rgba(65, 184, 131, 0.8);
   &:focus {
     outline: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   }
 `
-const GoToChat = styled.button`
+const Button = styled.button`
   font-weight: bold;
   font-size: 1.5rem;
   margin: 1rem auto;
-  text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   &:hover {
     background: none;
     color: rgba(0,0,0,0.6);
+    text-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
   }
   &:focus {
     background: none;
@@ -49,12 +52,12 @@ const Form = () => {
       ? <ChatScreen />
       : (
         <>
-          <UserData
+          <UserName
             value={userName}
             onChange={e => addUser(e.target.value)}
             placeholder={'Enter your name to join...'}>
-          </UserData>
-          <GoToChat onClick={e => enterChatroom(userName)}>Join chatroom</GoToChat>
+          </UserName>
+          <Button onClick={e => enterChatroom(userName)}>Join chatroom</Button>
         </>
       )
     }

@@ -1,9 +1,11 @@
-import gql from 'graphql';
+import gql from 'graphql-tag';
 
-export const GET_CHATS = gql`
-  query getChats {
-    id,
-    sender,
-    message
+export const GET_CHATS_QUERY = gql`
+  query GetChatsQuery {
+    getChats {
+      id,
+      sender,
+      message
+    }
   }
 `

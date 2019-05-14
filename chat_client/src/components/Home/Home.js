@@ -10,7 +10,9 @@ const Wrapper = styled.main`
   align-items: center;
 `
 const Body = styled.section`
-  width: 80%;
+  padding: 1rem;
+  width: 80vw;
+  max-height: 80vh;
 `
 const Home = () => (
   <Wrapper>
