@@ -40,16 +40,13 @@ const Button = styled.button`
 const Form = () => {
   const [userName, addUser] = useState('');
   const [userLogged, setLogged] = useState(false)
-  const enterChatroom = userName => {
-    setLogged(userName !== '');
-    console.log('Open chatroom with user: ', userName)
-  }
+  const enterChatroom = userName => setLogged(userName !== '')
   const handleSumbit = e => e.preventDefault();
   return (
     <Wrapper onSubmit={handleSumbit}>
     {
       userLogged
-      ? <ChatScreen />
+      ? <ChatScreen currentUser={userName}/>
       : (
         <>
           <UserName

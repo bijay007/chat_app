@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ApolloConsumer } from 'react-apollo';
 import styled from 'styled-components';
-import icon from 'assests/send-icon.svg'
+import icon from 'assests/send-icon.svg';
+import { SEND_MESSAGE_MUTATION } from 'data/mutations';
 
 const MessageBox = styled.footer`
   display: flex;
@@ -29,18 +31,36 @@ const Icon = styled.img`
   width: inherit;
 `
 
-class NewMessage extends React.Component {
-  render() {
-    console.log(icon)
-    return (
-      <MessageBox>
-        <Input placeholder={'Press Enter or Send to publish message..'} />
-        <Button>
-          <Icon src={icon} /> {/* Icon made by Freepik from www.flaticon.com */}
-        </Button>
-      </MessageBox>
-    )
+const NewMessage = props => {
+  const { currentUser } = props;
+  const [message, extractMessage] = useState('');
+  const sendMessage =  async function (message, apolloClient) {
+    console.log('Message by user ', currentUser, ' was ', message);
+    await apolloClient.mutate({
+      mutation: SEND_MESSAGE_MUTATION,
+      variables: {
+        sender: currentUser,
+        message: message
+      }
+    })
   }
+  return (
+    <ApolloConsumer>
+      {
+        apolloClient => (
+          <MessageBox>
+            <Input
+              placeholder={'Press Enter or Send to publish message..'}
+              onChange={e => extractMessage(e.target.value)}
+            />
+            <Button onClick={() => sendMessage(message, apolloClient)}>
+              <Icon src={icon} /> {/* Icon made by Freepik from www.flaticon.com */}
+            </Button>
+          </MessageBox>     
+        )
+      }
+    </ApolloConsumer>
+  )
 }
 
 export default NewMessage;

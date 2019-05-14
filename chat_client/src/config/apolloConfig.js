@@ -6,8 +6,8 @@ import { WebSocketLink } from 'apollo-link-ws'
 import { getMainDefinition } from 'apollo-utilities'
 
 const httpLink = new HttpLink({
-	uri: `https://${url.ip.http}:${url.port.http}`,
-	credentials: 'same-origin',
+  uri: `http://${url.ip.http}:${url.port.http}`,
+  credentials: 'same-origin',
 })
 
 const wsLink = new WebSocketLink({
