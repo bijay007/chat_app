@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import ChatScreen from 'components/ChatRoom/ChatScreen';
 
 const Wrapper = styled.form`
   display: flex;
@@ -34,16 +35,29 @@ const GoToChat = styled.button`
 `
 
 const Form = () => {
-  const [inputText, handleChange] = useState(''); // This is so clean with hooks...ahhh
+  const [userName, addUser] = useState('');
+  const [userLogged, setLogged] = useState(false)
+  const enterChatroom = userName => {
+    setLogged(userName !== '');
+    console.log('Open chatroom with user: ', userName)
+  }
   const handleSumbit = e => e.preventDefault();
   return (
     <Wrapper onSubmit={handleSumbit}>
-      <UserData
-        value={inputText}
-        onChange={e => handleChange(e.target.value)}
-        placeholder={'Enter your name to join...'}>
-      </UserData>
-      <GoToChat onClick={e => console.log(inputText)}>Join chatroom</GoToChat>
+    {
+      userLogged
+      ? <ChatScreen />
+      : (
+        <>
+          <UserData
+            value={userName}
+            onChange={e => addUser(e.target.value)}
+            placeholder={'Enter your name to join...'}>
+          </UserData>
+          <GoToChat onClick={e => enterChatroom(userName)}>Join chatroom</GoToChat>
+        </>
+      )
+    }
     </Wrapper>
   )
 }
