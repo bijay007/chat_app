@@ -31,7 +31,7 @@ const Icon = styled.img`
   width: inherit;
 `
 
-const NewMessage = props => {
+const AddChat = props => {
   const { currentUser } = props;
   const [message, extractMessage] = useState('');
   const sendMessage =  async function (message, apolloClient) {
@@ -63,4 +63,4 @@ const NewMessage = props => {
   )
 }
 
-export default NewMessage;
+export default AddChat;

@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { ApolloConsumer } from 'react-apollo';
 import { GET_CHATS_QUERY } from 'data/queries';
 // Components
-import ChatBlock from './ChatBlock';
-import NewMessage from './NewMessage';
+import Chat from './Chat';
+import AddChat from './AddChat';
 
 const Wrapper = styled.section`
   display: flex;
@@ -14,7 +14,7 @@ const Wrapper = styled.section`
   width: 100%;
 `
 
-const ChatScreen = props => (
+const ChatList = props => (
   <ApolloConsumer>
     {
       apolloClient => {
@@ -39,9 +39,9 @@ const ChatScreen = props => (
         return (
           <Wrapper>
             {
-              chatlist.getChats.map((chat, index) => <ChatBlock key={index + Math.random()} chat={chat} />)
+              chatlist.getChats.map((chat, index) => <Chat key={index + Math.random()} chat={chat} />)
             }
-            <NewMessage currentUser={currentUser}/>
+            <AddChat currentUser={currentUser}/>
           </Wrapper>
         )
       }
@@ -49,4 +49,4 @@ const ChatScreen = props => (
   </ApolloConsumer>
 )
 
-export default ChatScreen;
+export default ChatList;

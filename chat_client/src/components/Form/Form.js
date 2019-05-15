@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import ChatScreen from 'components/ChatRoom/ChatScreen';
+import ChatList from 'components/ChatRoom/ChatList';
 
 const Wrapper = styled.form`
   display: flex;
@@ -46,7 +46,7 @@ const Form = () => {
     <Wrapper onSubmit={handleSumbit}>
     {
       userLogged
-      ? <ChatScreen currentUser={userName}/>
+      ? <ChatList currentUser={userName}/>
       : (
         <>
           <UserName
