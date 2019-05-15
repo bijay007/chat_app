@@ -9,36 +9,39 @@ const CHAT_SUBSCRIPTION_CHANNEL = 'CHAT_CHANNEL';
 
 const resolvers = {
   Query: {
-    getChats: () => {
+    getMockChat: () => {
       const date = new Date();
       const mockChat = {
-        id: date.toLocaleString(),
+        id: '_' + Date.now(),
+        created: date.toLocaleString(),
         sender: 'Bijay',
         message: 'Hope this works :D'
       }
       console.log(`${chalk.green.bold('QUERY : getChats')} : TRIGGERED`)
-      return [mockChat]
-    }
+      return mockChat
+    },
+    getChats: () => chatsArr
   },
 
   Mutation: {
-    sendMessage(parent, {sender, message}, { pubsub }) {
+    createMessage(parent, {sender, message}, { pubsub }) {
       const date = new Date();
-      const newChatMsg = {
-        id: date.toLocaleString(),
+      const newChatAdded = {
+        id: '_' + Date.now(),
+        created: date.toLocaleString(),
         sender, message
       }
-      chatsArr.push(newChatMsg);
-      pubsub.publish('CHAT_CHANNEL', { newMessage: newChatMsg });
-      console.log(`${chalk.green.bold('MUTATION : sendMessage')} : TRIGGERED`)
-      return newChatMsg;
+      chatsArr.push(newChatAdded);
+      pubsub.publish('CHAT_CHANNEL', { getMessage: newChatAdded });
+      console.log(`${chalk.green.bold('MUTATION : createMessage')} : TRIGGERED`)
+      return newChatAdded;
     }
   },
 
   Subscription: {
-    newMessage: {
+    getMessage: {
       subscribe: (parent, args, { pubsub }) => {
-        console.log(`${chalk.green.bold('SUBSCRIPTION : newMessage')} : TRIGGERED`)
+        console.log(`${chalk.green.bold('SUBSCRIPTION : getMessage')} : TRIGGERED`)
         return pubsub.asyncIterator(CHAT_SUBSCRIPTION_CHANNEL)
       }
     }

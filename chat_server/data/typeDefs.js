@@ -4,15 +4,17 @@ const typeDefs = `
     id: String!
     sender: String!
     message: String!
+    created: String!
   }
   type Query {
+    getMockChat: Chat,
     getChats: [Chat]
   }
   type Mutation {
-    sendMessage(sender: String!, message: String!): Chat
+    createMessage(sender: String!, message: String!): Chat
   }
   type Subscription {
-    newMessage: Chat
+    getMessage: Chat
   }
 `
 export default typeDefs;
