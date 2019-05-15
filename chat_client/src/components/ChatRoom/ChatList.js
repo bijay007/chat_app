@@ -19,7 +19,7 @@ const ChatList = props => (
     {
       apolloClient => {
         const { currentUser } = props;
-        try {
+/*          try {
           apolloClient.readQuery({ query: GET_CHATS_QUERY });
         } catch (e) {
           apolloClient.writeQuery({
@@ -34,8 +34,7 @@ const ChatList = props => (
               }]
             }
           });
-        }
-        console.log('Apollo client: ', apolloClient);
+        } */
         let chatlist = apolloClient.readQuery({query: GET_CHATS_QUERY})
         return (
           <Wrapper>
