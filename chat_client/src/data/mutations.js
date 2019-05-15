@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
-export const SEND_MESSAGE_MUTATION = gql`
-  mutation SendMessageMutation($sender: String!, $message: String!) {
-    sendMessage(
+export const CREATE_MESSAGE_MUTATION = gql`
+  mutation CreateMessageMutation($sender: String!, $message: String!) {
+    createMessage(
       sender: $sender,
       message: $message
     ) {

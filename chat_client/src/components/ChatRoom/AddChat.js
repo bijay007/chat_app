@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ApolloConsumer } from 'react-apollo';
 import styled from 'styled-components';
 import icon from 'assests/send-icon.svg';
-import { SEND_MESSAGE_MUTATION } from 'data/mutations';
+import { CREATE_MESSAGE_MUTATION } from 'data/mutations';
 
 const MessageBox = styled.footer`
   display: flex;
@@ -37,7 +37,7 @@ const AddChat = props => {
   const sendMessage =  async function (message, apolloClient) {
     console.log('Message by user ', currentUser, ' was ', message);
     await apolloClient.mutate({
-      mutation: SEND_MESSAGE_MUTATION,
+      mutation: CREATE_MESSAGE_MUTATION,
       variables: {
         sender: currentUser,
         message: message

@@ -27,9 +27,10 @@ const ChatList = props => (
             data: {
               getChats: [{
                 __typename: 'Chat',
-                id: Date.now(),
+                id: '_' + Date.now(),
                 sender: 'Admin',
-                message: 'Welcome to the chatroom...'
+                message: 'Welcome to the chatroom...',
+                created: new Date().toLocaleString()
               }]
             }
           });
