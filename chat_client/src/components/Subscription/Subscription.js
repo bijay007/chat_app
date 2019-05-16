@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { Component } from 'react';
 import { GET_CHATS_QUERY } from 'data/queries';
 import { GET_MESSAGE_SUBSCRIPTION } from 'data/subscriptions';
-
+import debounce from 'lodash.debounce';
 import { graphql, compose, withApollo } from 'react-apollo';
 
 const subscriptionOptions = {
@@ -13,9 +13,14 @@ const subscriptionOptions = {
 }
 const withChatSubscriptionHOC = graphql(GET_CHATS_QUERY, subscriptionOptions);
 
-const Subscription = (props) => {
-  const subscribeToMoreChats = () => {
-    props.chatStream.subscribeToMore({
+// Simple UIless component that refreshes apollo cache on new subscription data arrival periodically
+class Subscription extends Component {
+
+  componentDidMount() {
+    debounce(() => {this.subscribeToMoreChats()}, 500)()
+  }
+  subscribeToMoreChats = () => {
+    this.props.chatStream.subscribeToMore({
       document: GET_MESSAGE_SUBSCRIPTION,
       updateQuery: (previousData, { subscriptionData }) => {
         return {
@@ -24,12 +29,9 @@ const Subscription = (props) => {
       }
     });
   };
-
-  useEffect(() => {
-    subscribeToMoreChats();
-  }, []);
-
-  return null;
+  render() {
+    return null;
+  }
 }
 
 const EnhancedSubscription = compose(withApollo, withChatSubscriptionHOC)(Subscription);
