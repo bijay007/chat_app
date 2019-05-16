@@ -11,9 +11,8 @@
     "start": "npm run build && nodemon dist/server.js"
   },
   "dependencies": {
-    "apollo-server": "^2.4.8",
     "chalk": "^2.4.2",
-    "graphql": "^14.2.1",
+    "graphql-yoga": "^1.17.4",
     "ws": "^6.2.1"
   },
   "devDependencies": {

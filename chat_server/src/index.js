@@ -1,5 +1,5 @@
 import * as Websocket from 'ws';
-import { ApolloServer } from 'apollo-server';
+const { GraphQLServer, PubSub } = require('graphql-yoga')
 
 // utils
 import pubsub from '../data/pubsub';
@@ -10,7 +10,7 @@ import resolvers from '../data/resolvers'
 import typeDefs from '../data/typeDefs'
 
 // Create apollo server
-const apolloServer = new ApolloServer({
+const gqlServer = new GraphQLServer({
   typeDefs,
   resolvers,
   context: { pubsub }
@@ -26,10 +26,11 @@ websocketServer.on('connection', (websocket, req) => {
   })
 }) */
 console.log(chalk.red.bold(`...... STARTING SERVER ...... `));
-apolloServer.listen(process.env.PORT || config.port).then(({ url }) => {
+/* apolloServer.listen(process.env.PORT || config.port).then(({ url }) => {
   console.log(
 		chalk.blue.bold(
 			`🚀..Apollo server ready at ${url}`
 		)
 	)
-})
+}) */
+gqlServer.start(() => console.log('Server is running on localhost:4000'))
