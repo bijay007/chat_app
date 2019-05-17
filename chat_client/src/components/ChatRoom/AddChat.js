@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import icon from 'assests/send-icon.svg';
 import { CREATE_MESSAGE_MUTATION } from 'data/mutations';
 
-const MessageBox = styled.footer`
+const MessageBox = styled.form`
   display: flex;
+  height: 3rem;
   border-radius: 0.5rem;
-  margin-top: 2rem;
+  margin: 2rem 0;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 `
 const Input = styled.input`
@@ -20,22 +21,24 @@ const Input = styled.input`
 const Button = styled.button`
   padding: 0.25rem;
   width: 20%;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   &:hover, &:focus {
     outline: none;
     background: transparent;
   }
 `
 const Icon = styled.img`
-  width: inherit;
+  height: 80%;
+  width: 80%;
 `
 
 const AddChat = props => {
   const { currentUser } = props;
-  const [message, extractMessage] = useState('');
+  const [message, bind] = useState('');
   const sendMessage =  async function (message, apolloClient) {
-    console.log('Message by user ', currentUser, ' was ', message);
+    bind('');
     await apolloClient.mutate({
       mutation: CREATE_MESSAGE_MUTATION,
       variables: {
@@ -44,14 +47,19 @@ const AddChat = props => {
       }
     })
   }
+  const handleSubmit = e => {
+    e.preventDefault();
+    bind('');
+  }
   return (
     <ApolloConsumer>
       {
         apolloClient => (
-          <MessageBox>
+          <MessageBox onSubmit={(e) => handleSubmit(e)}>
             <Input
+              value={message}
               placeholder={'Press Enter or Send to publish message..'}
-              onChange={e => extractMessage(e.target.value)}
+              onChange={e => bind(e.target.value)}
             />
             <Button onClick={() => sendMessage(message, apolloClient)}>
               <Icon src={icon} /> {/* Icon made by Freepik from www.flaticon.com */}

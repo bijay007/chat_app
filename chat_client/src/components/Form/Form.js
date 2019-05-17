@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ChatList from 'components/ChatRoom/ChatList';
 
-const Wrapper = styled.form`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,7 @@ const Wrapper = styled.form`
 `
 const UserName = styled.input`
   padding: 0.5rem;
-  width: 40%;
+  width: 80%;
   margin: 1rem auto;
   line-height: 2;
   border-radius: 0.5rem;
@@ -41,9 +41,8 @@ const Form = () => {
   const [userName, addUser] = useState('');
   const [userLogged, setLogged] = useState(false)
   const enterChatroom = userName => setLogged(userName !== '')
-  const handleSumbit = e => e.preventDefault();
   return (
-    <Wrapper onSubmit={handleSumbit}>
+    <Wrapper>
     {
       userLogged
       ? <ChatList currentUser={userName}/>
