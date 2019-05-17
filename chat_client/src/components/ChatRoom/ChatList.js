@@ -22,10 +22,11 @@ const ChatList = (props) => {
         ({ loading, error, data }) => {
           if (loading) return "Loading...";
           if (error) return `Error! ${error.message}`;
+          const chats = data.getChats.slice(data.getChats.length - 8);
           return (
             <Wrapper>
               {
-                data.getChats.map((chat, index) => <Chat key={index + Math.random()} chat={chat} />)
+                chats.map((chat, index) => <Chat key={index + Math.random()} chat={chat} />)
               }
               <AddChat currentUser={currentUser}/>
             </Wrapper>
