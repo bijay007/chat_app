@@ -10,8 +10,7 @@ import AddChat from './AddChat';
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  width: 100%;
+  padding: 0.5rem;
 `
 
 const ChatList = (props) => {

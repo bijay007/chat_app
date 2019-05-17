@@ -9,13 +9,14 @@ const MessageBox = styled.form`
   height: 3rem;
   border-radius: 0.5rem;
   margin: 2rem 0;
+  width: 100%;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 `
 const Input = styled.input`
   border: none;
   outline: none;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
   width: 80%;
 `
 const Button = styled.button`
@@ -23,7 +24,7 @@ const Button = styled.button`
   width: 20%;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   &:hover, &:focus {
     outline: none;
     background: transparent;
@@ -58,7 +59,7 @@ const AddChat = props => {
           <MessageBox onSubmit={(e) => handleSubmit(e)}>
             <Input
               value={message}
-              placeholder={'Press Enter or Send to publish message..'}
+              placeholder={'Press Enter or Send to publish...'}
               onChange={e => bind(e.target.value)}
             />
             <Button onClick={() => sendMessage(message, apolloClient)}>

@@ -6,21 +6,22 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
+  width: 100%;
 `
 const UserName = styled.input`
   padding: 0.5rem;
-  width: 80%;
   margin: 1rem auto;
   line-height: 2;
   border-radius: 0.5rem;
   border: 1.5px solid rgba(65, 184, 131, 0.8);
+  width: 90%;
   &:focus {
     outline: none;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   }
 `
-const Button = styled.button`
+const Login = styled.button`
   font-weight: bold;
   font-size: 1.5rem;
   margin: 1rem auto;
@@ -37,28 +38,26 @@ const Button = styled.button`
   }
 `
 
-const Form = () => {
+const ChatLogin = () => {
   const [userName, addUser] = useState('');
-  const [userLogged, setLogged] = useState(false)
+  const [userLogged, setLogged] = useState(false);
   const enterChatroom = userName => setLogged(userName !== '')
   return (
     <Wrapper>
     {
       userLogged
       ? <ChatList currentUser={userName}/>
-      : (
-        <>
+      : <>
           <UserName
             value={userName}
             onChange={e => addUser(e.target.value)}
             placeholder={'Enter your name to join...'}>
           </UserName>
-          <Button onClick={e => enterChatroom(userName)}>Join chatroom</Button>
+          <Login onClick={e => enterChatroom(userName)}>Join chatroom</Login>
         </>
-      )
     }
     </Wrapper>
   )
 }
 
-export default Form;
+export default ChatLogin;
